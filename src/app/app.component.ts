@@ -36,14 +36,25 @@ export class AppComponent {
   ];
 
   addOptions() {
-    this.options.push({
-      value: this.options.length + '',
-      label: 'ddd',
-      description: 'nddr',
-      disabled: false,
-      singleAnswer: false,
-      checked: false,
-    });
-    console.log(this.options);
+    this.options = [
+      ...this.options,
+      {
+        value: this.options.length + '',
+        label: 'ddd',
+        description: 'nddr',
+        disabled: false,
+        singleAnswer: false,
+        checked: false,
+      },
+    ];
+    // this.options.push({
+    //   value: this.options.length + '',
+    //   label: 'ddd',
+    //   description: 'nddr',
+    //   disabled: false,
+    //   singleAnswer: false,
+    //   checked: false,
+    // });
+    // console.log(this.options);
   }
 }

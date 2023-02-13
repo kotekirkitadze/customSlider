@@ -32,9 +32,7 @@ export class SliderComponent {
     this.max = this.options.length - 1;
     const value = this.options.find((e) => e.checked)?.value;
     this.value = value ? +value : 0;
-    console.log(this.min, 'min');
-    console.log(this.max, 'max');
-    console.log(this.value, 'value');
+    this.setSliderConfigs();
   }
   options: Options[] = [];
   value = 0;
@@ -45,30 +43,17 @@ export class SliderComponent {
   constructor() {}
   ngAfterViewInit(): void {
     this.setSliderConfigs();
-    // setTimeout(() => {
-    //   this.options.push({
-    //     value: '3',
-    //     label: 'night',
-    //     description: 'night descr',
-    //     disabled: false,
-    //     singleAnswer: false,
-    //     checked: false,
-    //   });
-    //   console.log(this.options, 'options');
-    //   this.min = 0;
-    //   this.max = this.options.length - 1;
-    //   const value = this.options.find((e) => e.checked)?.value;
-    //   this.value = value ? +value : 0;
-    //   this.setSliderConfigs();
-    // }, 4000);
   }
 
   setSliderConfigs() {
-    this.selectValue.nativeElement.setAttribute('data-content', '0');
+    this.selectValue?.nativeElement.setAttribute('data-content', this.value);
     const max = this.max == 1 ? 2 : this.max;
-    this.progressBar.nativeElement.style.width =
-      (100 / max) * +this.value + '%';
-    this.selector.nativeElement.style.left = (100 / max) * +this.value + '%';
+    if (this.progressBar)
+      this.progressBar.nativeElement.style.width =
+        (100 / max) * +this.value + '%';
+
+    if (this.selector)
+      this.selector.nativeElement.style.left = (100 / max) * +this.value + '%';
   }
 
   onInput(v: any) {
