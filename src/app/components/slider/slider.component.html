@@ -1,0 +1,19 @@
+<div class="main">
+  <input
+    (change)="onInput($event)"
+    id="slider"
+    type="range"
+    [value]="value"
+    [min]="min"
+    [max]="max"
+  />
+  <div class="imitatedSlider"></div>
+  <div id="selector">
+    <div class="SelectBtn"></div>
+    <div id="selectValue"></div>
+  </div>
+  <div id="progressBar"></div>
+  <div class="ticks">
+    <span *ngFor="let o of optionsTest" class="tick">{{ o.description }}</span>
+  </div>
+</div>

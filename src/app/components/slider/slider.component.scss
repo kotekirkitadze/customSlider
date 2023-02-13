@@ -1,0 +1,159 @@
+.main {
+  width: 60%;
+  margin: 24% auto;
+  position: relative;
+  #slider {
+    --webkit-appearance: none;
+    width: 100%;
+    height: 7px;
+    outline: none;
+    border-radius: 3px;
+  }
+  #slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 48px;
+    height: 48px;
+    z-index: 3;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .imitatedSlider {
+    width: 100%;
+    height: 7px;
+    outline: none;
+    border-radius: 3px;
+    position: absolute;
+    bottom: 3.4rem;
+    z-index: -10;
+    pointer-events: none;
+    background: #cec7c9;
+  }
+
+  #selector {
+    height: 104px;
+    width: 48px;
+    position: absolute;
+    bottom: 33px;
+    cursor: pointer;
+    transform: translateX(-50%);
+    z-index: 2;
+
+    .SelectBtn {
+      width: 18px;
+      height: 18px;
+      background-color: #f63f76;
+      border-radius: 50%;
+      position: absolute;
+      bottom: 17px;
+      left: 1rem;
+
+      &:hover + #selectValue {
+        opacity: 1;
+      }
+
+      &:hover.SelectBtn::after {
+        opacity: 1;
+      }
+
+      &::after {
+        content: "";
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: #fdbccf;
+        position: absolute;
+        z-index: -1;
+        left: -6px;
+        bottom: -6px;
+        opacity: 0;
+      }
+    }
+
+    #selectValue {
+      display: inline-block;
+      height: 30px;
+      width: 30px;
+      position: absolute;
+      border-radius: 50%;
+      border-top-right-radius: 0;
+      transition: all 0.4s;
+      transform: rotate(135deg);
+      border: 5px solid #f41c5e;
+      transition: all 0.4s;
+      background: #f41c5e;
+      left: 0.6rem;
+      top: 2.3rem;
+      opacity: 0;
+
+      &::after {
+        content: attr(data-content);
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        color: white;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: rotate(-135deg);
+        z-index: 100;
+        left: 5px;
+        bottom: 5px;
+        opacity: 1;
+      }
+    }
+  }
+
+  #progressBar {
+    width: 50%;
+    height: 7px;
+    background: #f8779e;
+    border-radius: 3px;
+    position: absolute;
+    top: 12px;
+    left: 0;
+    pointer-events: none;
+  }
+
+  .ticks {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 10px 20px;
+
+    .tick {
+      position: relative;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      width: 1px;
+
+      height: 10px;
+      line-height: 50px;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+input[type="range"] {
+  overflow: hidden;
+  width: 80px;
+  // opacity: 0;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  width: 10px;
+  -webkit-appearance: none;
+  opacity: 0;
+  height: 10px;
+  cursor: ew-resize;
+  background: #434343;
+  /* box-shadow: -80px 0 0 80px #43e5f7; */
+}
