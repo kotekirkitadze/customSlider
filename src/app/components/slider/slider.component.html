@@ -8,11 +8,11 @@
     [max]="max"
   />
   <div class="imitatedSlider"></div>
-  <div id="selector">
+  <div id="selector" #selector>
     <div class="SelectBtn"></div>
-    <div id="selectValue"></div>
+    <div id="selectValue" #selectValue></div>
   </div>
-  <div id="progressBar"></div>
+  <div id="progressBar" #progressBar></div>
   <div class="ticks">
     <span *ngFor="let o of optionsTest" class="tick">{{ o.description }}</span>
   </div>
